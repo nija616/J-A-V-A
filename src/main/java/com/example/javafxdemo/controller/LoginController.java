@@ -13,7 +13,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-public class LoginController {
+public class LoginController  {
     @FXML
     private TextField userEmail;
     @FXML

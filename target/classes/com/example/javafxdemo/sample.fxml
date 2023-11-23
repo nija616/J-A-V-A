@@ -10,8 +10,4 @@
     </stylesheets>
     <Label text="Sample Questions" styleClass="sample-questions-title" />
     <ListView fx:id="sampleQuestionListView" styleClass="sample-questions-list" />
-<<<<<<< HEAD
 </VBox>
-=======
-</VBox>
->>>>>>> origin/final_output

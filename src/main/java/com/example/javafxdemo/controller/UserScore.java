@@ -15,4 +15,8 @@ public class UserScore {
     public int getScore() {
         return score;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/final_output

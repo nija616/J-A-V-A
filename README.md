@@ -31,7 +31,7 @@ We welcome contributions to this project. If you'd like to contribute, please fo
 ## Contributors
 
 - [Kriti](https://github.com/kriitiid)
-- [Dinam]https://github.com/deenamshahi)
+- [Dinam] (https://github.com/deenamshahi)
 - [Raj](https://github.com/raj)
 - [Nija](https://github.com/nija616)
 - [Rojil](https://github.com/ROW-ZEAL)

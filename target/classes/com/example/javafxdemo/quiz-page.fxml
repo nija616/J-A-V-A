@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import java.net.URL?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.javafxdemo.controller.QuizPageController"
+>
+    <stylesheets>
+        <URL value="@./css/quizpage.css" />
+    </stylesheets>
+
+    <HBox>
+        <Label fx:id="accountNameLabel" styleClass="account-name-label" />
+        <Label fx:id="nationalityLabel" styleClass="nationality-label" />
+    </HBox>
+
+    <Label fx:id="questionNumberLabel" styleClass="question-number" />
+
+    <VBox styleClass="quiz-content">
+        <Label fx:id="questionLabel" styleClass="question-label" />
+        <Button fx:id="answerButton1" styleClass="answer-button" onAction="#checkAnswer" text="Option 1" />
+        <Button fx:id="answerButton2" styleClass="answer-button" onAction="#checkAnswer" text="Option 2" />
+        <Button fx:id="answerButton3" styleClass="answer-button" onAction="#checkAnswer" text="Option 3" />
+        <Button fx:id="answerButton4" styleClass="answer-button" onAction="#checkAnswer" text="Option 4" />
+        <Label fx:id="resultLabel" text="" />
+    </VBox>
+
+    <VBox styleClass="answer-table">
+        <HBox styleClass="answer-table-row">
+            <Label text="Correct Answers:" styleClass="answer-table-cell-label" />
+            <Label fx:id="correctAnswersLabel" styleClass="answer-table-cell-value" text="0" />
+        </HBox>
+        <HBox styleClass="answer-table-row">
+            <Label text="Incorrect Answers:" styleClass="answer-table-cell-label" />
+            <Label fx:id="incorrectAnswersLabel" styleClass="answer-table-cell-value" text="0" />
+        </HBox>
+    </VBox>
+</VBox>

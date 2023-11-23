@@ -13,7 +13,6 @@ import javafx.scene.control.ListView;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 public class DashboardController {
@@ -46,7 +45,21 @@ public class DashboardController {
 
     @FXML
     private void playQuizButtonClicked(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/javafxdemo/quiz-page.fxml"));
+            Parent root = loader.load();
 
+            QuizPageController quizPageController = loader.getController();
+            quizPageController.setAccountName(accountNameText.getText(), NationalityText.getText(), AddressText.getText());
+            Stage stage = new Stage();
+            stage.setTitle("Quiz Page");
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

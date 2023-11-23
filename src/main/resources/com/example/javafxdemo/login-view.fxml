@@ -18,7 +18,8 @@
         </HBox>
 
         <HBox alignment="CENTER" styleClass="btn-container">
-            <Button contentDisplay="CENTER" styleClass="btn-primary" mnemonicParsing="false" onAction="#login" text="Log In" style="-fx-padding: 10 20 0 20;" />
+<!--            <Button contentDisplay="CENTER" styleClass="btn-primary" mnemonicParsing="false" onAction="#login" text="Log In" style="-fx-padding: 10 20 0 20;" />-->
+            <Button onAction="#login" text="Log In" styleClass="btn-primary" style="-fx-padding: 0 20 10 20;" />
             <Button onAction="#goToRegisterPage" text="Register" styleClass="btn-primary" style="-fx-padding: 0 20 10 20;" />
         </HBox>
 

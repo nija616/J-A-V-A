@@ -1,0 +1,48 @@
+/* Style for the Settings Label */
+.settings-label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+}
+
+/* Style for the HBox containing the labels and choice box */
+HBox {
+    -fx-spacing: 10px;
+    -fx-padding: 10px;
+}
+
+/* Style for the message label */
+.message-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #007BFF; /* Blue text color */
+    -fx-padding: 10px;
+}
+
+/* Style for buttons */
+Button {
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+}
+
+/* Style for the ChoiceBox */
+ChoiceBox {
+    -fx-font-size: 14px;
+}
+
+/* Style for the Slider */
+Slider {
+    -fx-control-inner-background: #F5F5F5; /* Light gray background */
+}
+
+/* Style for the CheckBox */
+CheckBox {
+    -fx-font-size: 14px;
+}
+
+/* Style for the VBox (main container) */
+VBox {
+    -fx-spacing: 20px;
+    -fx-padding: 20px;
+}
+
+

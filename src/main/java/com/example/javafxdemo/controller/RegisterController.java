@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class RegisterController {
+public class RegisterController  {
     @FXML
     private TextField userName;
     @FXML
@@ -49,8 +49,8 @@ public class RegisterController {
         String password = userPassword.getText();
         String pathToCSV = "src/main/resources/userData.csv";
 
-        if (userEmail.isEmpty()) {
-            emailError.setText("Email can't be empty");
+        if (!isValidEmail(userEmail)) {
+            emailError.setText("Invalid email format");
             email.getStyleClass().add("error-background");
             isFormValid = false;
         } else {
@@ -74,6 +74,12 @@ public class RegisterController {
             application.loginScene();
         }
     }
+    private boolean isValidEmail(String email) {
+        // Use a simple regex for basic email validation
+        String emailRegex = "^[^@]+@[^@]+$";
+        return email.matches(emailRegex);
+    }
+
 
     public void clearFormElements() {
         userName.clear();

@@ -5,8 +5,12 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -41,16 +45,16 @@ public class QuizPageController {
     @FXML
     private Label accountNameLabel;
     @FXML
-    private Label nationalityLabel; // Added Label for displaying nationality
+    private Label nationalityLabel;
 
     private List<QuizQuestion> quizQuestions = new ArrayList<>();
     private int currentQuestionIndex;
-    private int correctAnswers = 0;
-    private int incorrectAnswers = 0;
+    static int correctAnswers = 0;
+    static int incorrectAnswers = 0;
 
     private Timeline questionTimer;
 
-    // Added field for storing nationality
+
 
     public void setAccountName(String accountName, String nationality, String text) {
         accountNameLabel.setText(accountName);
@@ -59,11 +63,21 @@ public class QuizPageController {
     }
 
     @FXML
-    public void initialize() {
+    public void initialize() throws IOException {
         loadQuizQuestions();
         currentQuestionIndex = 0;
-        showNextQuestion();
-        questionTimer = new Timeline(new KeyFrame(Duration.seconds(2), e -> showNextQuestion()));
+        try {
+            showNextQuestion();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        questionTimer = new Timeline(new KeyFrame(Duration.seconds(2), e -> {
+            try {
+                showNextQuestion();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        }));
         questionTimer.setCycleCount(1);
         nationalityLabel.setText("Nationality: " + nationality);
 
@@ -103,8 +117,8 @@ public class QuizPageController {
 
         Collections.shuffle(quizQuestions);
 
-        if (quizQuestions.size() > 5) {
-            quizQuestions = quizQuestions.subList(0, 5);
+        if (quizQuestions.size() > 20) {
+            quizQuestions = quizQuestions.subList(0, 20);
         }
     }
 
@@ -122,7 +136,7 @@ public class QuizPageController {
         }
     }
 
-    private void showNextQuestion() {
+    private void showNextQuestion() throws IOException {
         if (currentQuestionIndex < quizQuestions.size()) {
             QuizQuestion question = quizQuestions.get(currentQuestionIndex);
 
@@ -144,6 +158,17 @@ public class QuizPageController {
             answerButton3.setStyle("");
             answerButton4.setStyle("");
         } else {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/javafxdemo/result.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Quiz Page");
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+
+
             questionLabel.setText("Quiz completed.");
             answerButton1.setDisable(true);
             answerButton2.setDisable(true);

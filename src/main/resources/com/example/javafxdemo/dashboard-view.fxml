@@ -33,11 +33,11 @@
         <Label fx:id="NationalityText" styleClass="nationality-label" text="Nationality: " />
         <Label fx:id="AddressText" styleClass="address-label" text="Address: " />
 
-        <!--        <VBox styleClass="sidebar-links">-->
-        <!--            <Button text="Home" onAction="#navigateToHome" />-->
-        <!--            <Button text="Settings" onAction="#openSettingsDialog" />-->
-        <!--            &lt;!&ndash; Add more sidebar links as needed &ndash;&gt;-->
-        <!--        </VBox>-->
+<!--        <VBox styleClass="sidebar-links">-->
+<!--            <Button text="Home" onAction="#navigateToHome" />-->
+<!--            <Button text="Settings" onAction="#openSettingsDialog" />-->
+<!--            &lt;!&ndash; Add more sidebar links as needed &ndash;&gt;-->
+<!--        </VBox>-->
     </VBox>
 
     <!-- Right Side - Content -->
@@ -72,23 +72,23 @@
         </HBox>
     </VBox>
     <HBox>
-        <VBox styleClass="notification-section">
-            <Label text="Notifications" styleClass="dashboard-title">
-                <padding>
-                    <Insets top="10.0" />
-                </padding>
-            </Label>
-            <ListView fx:id="notificationListView" styleClass="notification-list">
-                <items>
-                    <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="Sample Notification 1" />
-                        <String fx:value="Sample Notification 2" />
-                        <String fx:value="Sample Notification 3" />
-                        <!-- You can add more notifications here -->
-                    </FXCollections>
-                </items>
-            </ListView>
-        </VBox>
+    <VBox styleClass="notification-section">
+        <Label text="Notifications" styleClass="dashboard-title">
+            <padding>
+                <Insets top="10.0" />
+            </padding>
+        </Label>
+        <ListView fx:id="notificationListView" styleClass="notification-list">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Sample Notification 1" />
+                    <String fx:value="Sample Notification 2" />
+                    <String fx:value="Sample Notification 3" />
+                    <!-- You can add more notifications here -->
+                </FXCollections>
+            </items>
+        </ListView>
+    </VBox>
     </HBox>
     <HBox>
         <VBox styleClass="quiz-rules-section">

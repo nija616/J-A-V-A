@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Button?>
+<?import com.example.javafxdemo.controller.SettingsController?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.collections.FXCollections?>
+
+<?import java.lang.String?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.javafxdemo.controller.SettingsController">
+    <stylesheets>
+        <URL value="@./css/settings-dialog.css" />
+    </stylesheets>
+
+    <Label fx:id="settingsLabel" text="Settings" styleClass="settings-label" />
+
+    <CheckBox fx:id="enableFeatureCheckbox" text="Enable Feature" onAction="#handleEnableFeatureCheckbox" />
+
+    <HBox>
+        <Label text="Select Color:" />
+        <ChoiceBox fx:id="colorChoiceBox">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Red" />
+                    <String fx:value="Green" />
+                    <String fx:value="Blue" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+    </HBox>
+
+    <HBox>
+        <Label text="Font Size:" />
+        <Slider fx:id="fontSizeSlider" min="12" max="36" value="16" showTickMarks="true" showTickLabels="true" />
+    </HBox>
+
+    <Label fx:id="messageLabel" styleClass="message-label" />
+
+    <Button fx:id="saveButton" text="Save" onAction="#handleSaveButton" />
+    <Button text="Reset" onAction="#handleResetButton" />
+</VBox>

@@ -1,0 +1,78 @@
+/* Root style for the entire dashboard /
+.dashboard-background {
+    -fx-background-color: #f0f0f0; / Set a light background color */
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+}
+
+/* Left-side styling /
+.left-side {
+    -fx-background-color: #ffffff; / Set a white background color /
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+    -fx-border-radius: 5px; / Add rounded corners /
+    -fx-border-color: #dddddd; / Add a light border color */
+    -fx-border-width: 1px;
+}
+
+/* Right-side styling /
+.right-side {
+    -fx-background-color: #ffffff; / Set a white background color /
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+    -fx-border-radius: 5px; / Add rounded corners /
+    -fx-border-color: #dddddd; / Add a light border color */
+    -fx-border-width: 1px;
+}
+
+/* Header styling /
+.header {
+    -fx-background-color: #4CAF50; / Set a green background color /
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #388E3C; / Darker shade of green for border */
+    -fx-border-width: 1px;
+}
+
+/* Main content styling /
+.main-content {
+    -fx-background-color: #ffffff; / Set a white background color */
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #dddddd;
+    -fx-border-width: 1px;
+}
+
+/* Footer styling /
+.footer {
+    -fx-background-color: #ffffff; / Set a white background color */
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #dddddd;
+    -fx-border-width: 1px;
+}
+
+/* Button styling /
+.button {
+    -fx-background-color: #4CAF50; / Green button color /
+    -fx-text-fill: #ffffff; / White text color */
+    -fx-padding: 8px 15px;
+    -fx-font-size: 14px;
+    -fx-border-radius: 5px;
+}
+
+/* Labels styling */
+.label {
+    -fx-font-size: 16px;
+}
+
+/* Profile picture styling /
+#profileImage {
+    -fx-effect: dropshadow(three-pass-box, #dddddd, 5, 0, 0, 0);
+    -fx-border-radius: 50%; / Make the profile picture round */
+}
+
+/* Add more styles as needed for specific elements */

@@ -5,9 +5,8 @@ import com.opencsv.CSVWriter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -23,22 +22,18 @@ public class RegisterController {
     @FXML
     private ComboBox<String> userGender;
     @FXML
-    private TextField userNationality;
+    private ComboBox<String> userNationality;
+    @FXML
+    private TextField userAddress;
     @FXML
     private PasswordField userPassword;
     @FXML
     private Button registerBtn;
     @FXML
     private Label emailError;
-    @FXML
-    private ImageView userImage;
 
     private Application application;
     private boolean isFormValid;
-
-    @FXML
-    private Label imageId;
-    private String imagePath;
 
     public void setApplication(Application application) {
         this.application = application;
@@ -49,7 +44,8 @@ public class RegisterController {
         String userEmail = email.getText();
         String birthYear = dateOfBirth.getValue().toString();
         String gender = userGender.getValue();
-        String nationality = userNationality.getText();
+        String nationality = userNationality.getValue();
+        String address = userAddress.getText();
         String password = userPassword.getText();
         String pathToCSV = "src/main/resources/userData.csv";
 
@@ -57,8 +53,7 @@ public class RegisterController {
             emailError.setText("Email can't be empty");
             email.getStyleClass().add("error-background");
             isFormValid = false;
-        }
-        else {
+        } else {
             isFormValid = true;
         }
 
@@ -67,7 +62,9 @@ public class RegisterController {
                 FileWriter fileWriter = new FileWriter(pathToCSV, true);
                 CSVWriter csvWriter = new CSVWriter(fileWriter);
 
-                String[] csvData = {name, userEmail, birthYear, gender, nationality, password, imagePath};
+                String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+
+                String[] csvData = {name, userEmail, birthYear, gender, nationality, address, hashedPassword};
                 csvWriter.writeNext(csvData);
                 csvWriter.close();
                 clearFormElements();
@@ -78,38 +75,17 @@ public class RegisterController {
         }
     }
 
-    public void uploadImage(ActionEvent event) {
-        // FileChooser class to choose files
-        FileChooser fileChooser = new FileChooser();
-        // FileChooser ExtensionFilters to add filters to specific files only
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif"));
-
-        // File class to capture the selected image as a file
-        // File class has access to file details like file name, file location, file size,
-        // file url and so on...
-        File selectedImage = fileChooser.showOpenDialog(null);
-        if (selectedImage != null) {
-
-            // Image class to process the url as an image
-            Image image = new Image(selectedImage.toURI().toString());
-            // Showing the name of the image after upload
-            imageId.setText(selectedImage.getName());
-            // Displaying the image after upload
-            userImage.setImage(image);
-            // Imagepath will later be added into csv which is a file uri
-            imagePath = selectedImage.getPath();
-        }
-    }
-
-    public void clearFormElements(){
+    public void clearFormElements() {
         userName.clear();
         email.clear();
         dateOfBirth.setValue(null);
         userGender.getSelectionModel().clearSelection();
+        userNationality.getSelectionModel().clearSelection();
+        userAddress.clear();
         userPassword.clear();
-        userNationality.clear();
-        userImage.setImage(null);
-        imageId.setText("");
+    }
 
+    public void login(ActionEvent event) throws IOException {
+        application.loginScene();
     }
 }
